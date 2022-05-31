@@ -4,12 +4,12 @@
 </script>
 
 <template>
-	<Slider>
+	<Slider :transitionSpeed="500" :autoPlay="false" :autoPlaySpeed="1000">
 		<Slide style="background-color: red">
 			<div>Slide 1</div>
 		</Slide>
 		<Slide style="background-color: blue">Slide 2</Slide>
-		<Slide>Slide 3</Slide>
+		<Slide style="background-color: green">Slide 3</Slide>
 	</Slider>
 </template>
 

@@ -8,56 +8,65 @@
 			</div>
 		</div>
 		<div ref="sliderTrack" class="curseur--track">
-			<ul ref="sliderMain" class="curseur--list"></ul>
+			<ul
+				ref="sliderMain"
+				class="curseur--list"
+				:style="`--transition-speed:${transitionSpeed}ms`"
+				:class="animate ? 'animate-transition' : ''"
+			></ul>
+			<div>
+				<button @click.prevent="previous">
+					<slot name="prevButton">Previous</slot>
+				</button>
+				<button @click.prevent="next">
+					<slot name="nextButton">Next</slot>
+				</button>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
-	import { ref, onMounted } from "vue";
-	import { onResize } from "../utilities/screen";
+	import { Ref, ref, onMounted, defineProps, toRefs } from "vue";
+	import { useSlider } from "../utilities/slider";
 
 	//variables
-	const items = ref(null);
-	const sliderMain = ref(null);
-	const sliderTrack = ref(null);
-	let itemsList: Array<HTMLElement> = [];
-
+	const placeHolderElement = document.createElement("null");
+	const items: Ref<HTMLElement> = ref(placeHolderElement);
+	const sliderMain: Ref<HTMLElement> = ref(placeHolderElement);
+	const sliderTrack: Ref<HTMLElement> = ref(placeHolderElement);
+	const props = defineProps({
+		transitionSpeed: {
+			type: Number,
+			default: 500,
+		},
+		autoPlay: {
+			type: Boolean,
+			default: false,
+		},
+		autoPlaySpeed: {
+			type: Number,
+			default: 5000,
+		},
+	});
+	const { transitionSpeed, autoPlay, autoPlaySpeed } = toRefs(props);
 	//methods
-	const render = () => {
-		if (items.value && sliderMain.value && sliderTrack.value) {
-			const sliderRoot = sliderMain.value as HTMLElement;
-			const itemsRoot = items.value as HTMLElement;
-			sliderRoot.innerHTML = "";
-			itemsList = [];
-			for (const i in itemsRoot.children) {
-				if (Number(i) >= 0) {
-					const item = itemsRoot.children[i].cloneNode(
-						true
-					) as HTMLElement;
-					item.style.width = trackWidth() + "px";
-					sliderRoot.append(item);
-					itemsList.push(item);
-				}
-			}
-		}
-	};
-	const trackWidth = () => {
-		if (!sliderTrack.value) return 0;
-		const trackRoot = sliderTrack.value as HTMLElement;
-		return trackRoot.offsetWidth;
-	};
-	const resized = () => {
-		const w = trackWidth();
-		itemsList.forEach(e => {
-			e.style.width = `${w}px`;
-		});
-	};
 
-	//dev
-	onResize(resized);
+	const { render, trackWidth, next, previous, start, stop, animate } =
+		useSlider({
+			items,
+			sliderMain,
+			sliderTrack,
+			transitionSpeed,
+			autoPlaySpeed,
+		});
+
 	onMounted(() => {
 		render();
+		sliderMain.value.style.transform = `translateX(-${trackWidth()}px)`;
+		if (autoPlay.value) {
+			start();
+		}
 	});
 </script>
 
@@ -78,5 +87,8 @@
 		width: -moz-max-content;
 		width: max-content;
 		will-change: transform;
+	}
+	.animate-transition {
+		transition: all var(--transition-speed) ease-in-out;
 	}
 </style>
