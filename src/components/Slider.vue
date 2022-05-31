@@ -2,8 +2,10 @@
 	<div>
 		<div class="hidden">
 			<div class="hidden">
-				<div ref="items" v-on:vnode-updated="render" class="hidden">
-					<slot />
+				<div ref="items">
+					<Slides @vnodeUpdated="reRender">
+						<slot />
+					</Slides>
 				</div>
 			</div>
 		</div>
@@ -27,12 +29,13 @@
 </template>
 
 <script setup lang="ts">
-	import { Ref, ref, onMounted, defineProps, toRefs } from "vue";
+	import Slides from "./Slides.vue";
+	import { Ref, ref, onMounted, toRefs, watch } from "vue";
 	import { useSlider } from "../utilities/slider";
-
 	//variables
 	const placeHolderElement = document.createElement("null");
 	const items: Ref<HTMLElement> = ref(placeHolderElement);
+	const slotItems: Ref<HTMLElement> = ref(placeHolderElement);
 	const sliderMain: Ref<HTMLElement> = ref(placeHolderElement);
 	const sliderTrack: Ref<HTMLElement> = ref(placeHolderElement);
 	const props = defineProps({
@@ -49,10 +52,11 @@
 			default: 5000,
 		},
 	});
+
 	const { transitionSpeed, autoPlay, autoPlaySpeed } = toRefs(props);
 	//methods
 
-	const { render, trackWidth, next, previous, start, stop, animate } =
+	const { render, trackWidth, next, previous, start, stop, reset, animate } =
 		useSlider({
 			items,
 			sliderMain,
@@ -60,7 +64,10 @@
 			transitionSpeed,
 			autoPlaySpeed,
 		});
-
+	const reRender = () => {
+		render();
+		reset();
+	};
 	onMounted(() => {
 		render();
 		sliderMain.value.style.transform = `translateX(-${trackWidth()}px)`;

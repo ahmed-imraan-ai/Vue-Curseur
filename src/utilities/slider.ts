@@ -35,6 +35,7 @@ export const useSlider = ({
 
 	//goto next slide
 	const next = () => {
+		if (itemsList.value.length == 3 || itemsList.value.length == 0) return;
 		if (!sliding) {
 			sliding = true;
 			animate.value = true;
@@ -63,6 +64,7 @@ export const useSlider = ({
 
 	//goto previous slide
 	const previous = () => {
+		if (itemsList.value.length == 3 || itemsList.value.length == 0) return;
 		if (!sliding) {
 			sliding = true;
 			animate.value = true;
@@ -97,6 +99,10 @@ export const useSlider = ({
 	const stop = () => {
 		clearInterval(autoPlayInterval);
 	};
+	const reset = () => {
+		currentIndex = 1;
+		sliderMain.value.style.transform = `translateX(-${trackWidth()}px)`;
+	};
 	onResize(() => {
 		resized();
 	});
@@ -108,6 +114,7 @@ export const useSlider = ({
 		previous,
 		start,
 		stop,
+		reset,
 		animate,
 	};
 };
