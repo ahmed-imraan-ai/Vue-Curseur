@@ -29,6 +29,8 @@ export const useRender = ({
 				const SecondClone = TmpList[TmpList.length - 1].cloneNode(
 					true
 				) as HTMLElement;
+				firstClone.classList.add("curseur--slide--clone");
+				SecondClone.classList.add("curseur--slide--clone");
 				itemsList.value.push(SecondClone);
 				for (const i in TmpList) {
 					itemsList.value.push(TmpList[i]);
@@ -36,6 +38,7 @@ export const useRender = ({
 				itemsList.value.push(firstClone);
 			}
 			//attach list to html
+			itemsList.value[1].classList.add("curseur--slide--active");
 			itemsList.value.forEach(e => {
 				sliderRoot.append(e);
 			});

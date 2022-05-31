@@ -42,11 +42,13 @@ export const useSlider = ({
 			if (currentIndex == itemsList.value.length - 2) {
 				const translate = (1 + currentIndex) * Number(trackWidth());
 				sliderMain.value.style.transform = `translateX(-${translate}px)`;
+				setActive("last");
 				setTimeout(() => {
 					animate.value = false;
 					sliderMain.value.style.transform = `translateX(-${trackWidth()}px)`;
 					sliding = false;
-				}, transitionSpeed.value);
+					setActive();
+				}, transitionSpeed.value + 100);
 
 				currentIndex = 1;
 			} else {
@@ -57,7 +59,8 @@ export const useSlider = ({
 				setTimeout(() => {
 					animate.value = false;
 					sliding = false;
-				}, transitionSpeed.value);
+					setActive();
+				}, transitionSpeed.value + 100);
 			}
 		}
 	};
@@ -70,13 +73,15 @@ export const useSlider = ({
 			animate.value = true;
 			if (currentIndex == 1) {
 				sliderMain.value.style.transform = `translateX(0px)`;
+				setActive("first");
 				setTimeout(() => {
 					animate.value = false;
 					const lastItem = itemsList.value.length - 2;
 					const translate = lastItem * Number(trackWidth());
 					sliderMain.value.style.transform = `translateX(-${translate}px)`;
 					sliding = false;
-				}, transitionSpeed.value);
+					setActive();
+				}, transitionSpeed.value + 100);
 
 				currentIndex = itemsList.value.length - 2;
 			} else {
@@ -87,9 +92,25 @@ export const useSlider = ({
 				setTimeout(() => {
 					animate.value = false;
 					sliding = false;
-				}, transitionSpeed.value);
+					setActive();
+				}, transitionSpeed.value + 100);
 			}
 		}
+	};
+	const setActive = (index: "first" | "last" | "current" = "current") => {
+		itemsList.value.forEach(el => {
+			el.classList.remove("curseur--slide--active");
+		});
+		if (index == "first")
+			itemsList.value[0].classList.add("curseur--slide--active");
+		else if (index == "last")
+			itemsList.value[itemsList.value.length - 1].classList.add(
+				"curseur--slide--active"
+			);
+		else
+			itemsList.value[currentIndex].classList.add(
+				"curseur--slide--active"
+			);
 	};
 	const start = () => {
 		autoPlayInterval = setInterval(() => {

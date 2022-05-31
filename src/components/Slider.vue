@@ -16,14 +16,14 @@
 				:style="`--transition-speed:${transitionSpeed}ms`"
 				:class="animate ? 'animate-transition' : ''"
 			></ul>
-			<div>
-				<button @click.prevent="previous">
-					<slot name="prevButton">Previous</slot>
-				</button>
-				<button @click.prevent="next">
-					<slot name="nextButton">Next</slot>
-				</button>
-			</div>
+			<slot name="navigation" :next="next" :previous="previous">
+				<slot name="previousButton" :next="previous">
+					<button @click="previous">Previous</button>
+				</slot>
+				<slot name="nextButton" :next="next">
+					<button @click="next">Next</button>
+				</slot>
+			</slot>
 		</div>
 	</div>
 </template>
