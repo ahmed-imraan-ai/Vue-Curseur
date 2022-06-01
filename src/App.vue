@@ -1,4 +1,5 @@
 <template>
+	<div style="margin-bottom: 10px"><Logo /></div>
 	<div>Example Slider</div>
 	<Slider :transitionSpeed="500" :autoPlay="false" :autoPlaySpeed="2000">
 		<template v-slot:default>
@@ -17,6 +18,7 @@
 <script setup lang="ts">
 	import Slider from "./components/Slider.vue";
 	import Slide from "./components/Slide.vue";
+	import Logo from "./icons/Logo.vue";
 	const slides = [
 		{ img: "https://picsum.photos/id/237/1800/500", alt: "Random Image" },
 		{ img: "https://picsum.photos/id/811/1800/500", alt: "Random Image" },
@@ -34,7 +36,6 @@
 		-moz-osx-font-smoothing: grayscale;
 		text-align: center;
 		color: #2c3e50;
-		margin-top: 60px;
 	}
 	.image {
 		width: 100%;
