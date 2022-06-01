@@ -181,4 +181,4 @@ Use this space to list resources you find helpful and would like to give credit 
 [issues-url]: https://github.com/ahmed-imraan-ai/Vue-Curseur/issues
 [license-shield]: https://img.shields.io/github/license/ahmed-imraan-ai/Vue-Curseur?style=for-the-badge
 [license-url]: https://github.com/ahmed-imraan-ai/Vue-Curseur/blob/main/LICENSE
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/screenshot#06012022.png
