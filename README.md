@@ -171,14 +171,14 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/ahmed-imraan-ai/Vue-Curseur?style=for-the-badge
 [contributors-url]: https://github.com/ahmed-imraan-ai/Vue-Curseur/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/ahmed-imraan-ai/Vue-Curseur?style=for-the-badge
 [forks-url]: https://github.com/othneildrew/Vue-Curseur/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/ahmed-imraan-ai/Vue-Curseur?style=for-the-badge
 [stars-url]: https://github.com/othneildrew/Vue-Curseur/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/ahmed-imraan-ai/Vue-Curseur?style=for-the-badge
 [issues-url]: https://github.com/othneildrew/Vue-Curseur/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/ahmed-imraan-ai/Vue-Curseur?style=for-the-badge
 [license-url]: https://github.com/ahmed-imraan-ai/Vue-Curseur/blob/main/LICENSE
 [product-screenshot]: images/screenshot.png
