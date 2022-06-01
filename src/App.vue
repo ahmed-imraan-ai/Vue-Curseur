@@ -1,7 +1,12 @@
 <template>
 	<div style="margin-bottom: 10px"><Logo /></div>
-	<div>Example Slider</div>
-	<Slider :transitionSpeed="500" :autoPlay="false" :autoPlaySpeed="2000">
+	<div class="title">Example 1</div>
+	<Slider
+		:transitionSpeed="500"
+		:autoPlay="false"
+		:autoPlaySpeed="2000"
+		class="slider1"
+	>
 		<template v-slot:default>
 			<Slide v-for="(s, i) in slides" :key="i">
 				<div>
@@ -36,6 +41,9 @@
 		-moz-osx-font-smoothing: grayscale;
 		text-align: center;
 		color: #2c3e50;
+	}
+	.title {
+		padding: 10px;
 	}
 	.image {
 		width: 100%;

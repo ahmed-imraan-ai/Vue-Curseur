@@ -1,61 +1,63 @@
 <template>
-	<div class="vue-curseur curseur--body">
-		<div class="hidden">
+	<div class="vue-curseur--wrapper">
+		<div class="vue-curseur curseur--body">
 			<div class="hidden">
-				<div ref="items">
-					<Slides @vnodeUpdated="reRender">
-						<slot />
-					</Slides>
+				<div class="hidden">
+					<div ref="items">
+						<Slides @vnodeUpdated="reRender">
+							<slot />
+						</Slides>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div ref="sliderTrack" class="curseur--track">
-			<ul
-				ref="sliderMain"
-				class="curseur--list"
-				:style="`--transition-speed:${transitionSpeed}ms`"
-				:class="animate ? 'animate-transition' : ''"
-			></ul>
-			<slot name="navigation" :next="next" :previous="previous">
-				<div class="curseur--slide--navigation">
-					<slot name="previousButton" :next="previous">
-						<div class="curseur--previous" @click="previous">
-							<Arrow direction="left" />
-						</div>
-					</slot>
-					<slot name="nextButton" :next="next">
-						<div class="curseur--next" @click="next">
-							<Arrow />
-						</div>
-					</slot>
+			<div ref="sliderTrack" class="curseur--track">
+				<ul
+					ref="sliderMain"
+					class="curseur--list"
+					:style="`--transition-speed:${transitionSpeed}ms`"
+					:class="animate ? 'animate-transition' : ''"
+				></ul>
+				<slot name="navigation" :next="next" :previous="previous">
+					<div class="curseur--slide--navigation">
+						<slot name="previousButton" :next="previous">
+							<div class="curseur--previous" @click="previous">
+								<Arrow direction="left" />
+							</div>
+						</slot>
+						<slot name="nextButton" :next="next">
+							<div class="curseur--next" @click="next">
+								<Arrow />
+							</div>
+						</slot>
+					</div>
+				</slot>
+			</div>
+
+			<slot
+				name="pagination"
+				:count="count"
+				:current="currentSlide"
+				:goto="gotoSlide"
+			>
+				<div class="curseur--pagination">
+					<div
+						class="curseur--pagination--wrapper"
+						v-for="c in count"
+						:key="c"
+					>
+						<div
+							class="curseur--pagination--item"
+							@click.prevent="gotoSlide(c)"
+							:class="
+								currentSlide == c
+									? 'curseur--pagination--item--active'
+									: ''
+							"
+						></div>
+					</div>
 				</div>
 			</slot>
 		</div>
-
-		<slot
-			name="pagination"
-			:count="count"
-			:current="currentSlide"
-			:goto="gotoSlide"
-		>
-			<div class="curseur--pagination">
-				<div
-					class="curseur--pagination--wrapper"
-					v-for="c in count"
-					:key="c"
-				>
-					<div
-						class="curseur--pagination--item"
-						@click.prevent="gotoSlide(c)"
-						:class="
-							currentSlide == c
-								? 'curseur--pagination--item--active'
-								: ''
-						"
-					></div>
-				</div>
-			</div>
-		</slot>
 	</div>
 </template>
 

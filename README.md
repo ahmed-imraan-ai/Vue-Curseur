@@ -10,7 +10,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/ahmed-imraan-ai/Vue-Curseur">
     <img src="images/logo.png" alt="Vue-Curseur" width="166" height="132">
   </a>
 
@@ -19,14 +19,14 @@
   <p align="center">
     Light, extendable and reactive Slider for Vue 3
     <br />
-    <a href="https://github.com/othneildrew/Vue-Curseur"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/ahmed-imraan-ai/Vue-Curseur"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Vue-Curseur">View Demo</a>
+    <a href="https://github.com/ahmed-imraan-ai/Vue-Curseur">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Vue-Curseur/issues">Report Bug</a>
+    <a href="https://github.com/ahmed-imraan-ai/Vue-Curseur/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Vue-Curseur/issues">Request Feature</a>
+    <a href="https://github.com/ahmed-imraan-ai/Vue-Curseur/issues">Request Feature</a>
   </p>
 </div>
 
@@ -118,7 +118,7 @@ TBA
     -   [ ] Dhivehi
 -   [ ] TBA
 
-See the [open issues](https://github.com/othneildrew/Vue-Curseur/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/ahmed-imraan-ai/Vue-Curseur/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -174,11 +174,11 @@ Use this space to list resources you find helpful and would like to give credit 
 [contributors-shield]: https://img.shields.io/github/contributors/ahmed-imraan-ai/Vue-Curseur?style=for-the-badge
 [contributors-url]: https://github.com/ahmed-imraan-ai/Vue-Curseur/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/ahmed-imraan-ai/Vue-Curseur?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Vue-Curseur/network/members
+[forks-url]: https://github.com/ahmed-imraan-ai/Vue-Curseur/network/members
 [stars-shield]: https://img.shields.io/github/stars/ahmed-imraan-ai/Vue-Curseur?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Vue-Curseur/stargazers
+[stars-url]: https://github.com/ahmed-imraan-ai/Vue-Curseur/stargazers
 [issues-shield]: https://img.shields.io/github/issues/ahmed-imraan-ai/Vue-Curseur?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Vue-Curseur/issues
+[issues-url]: https://github.com/ahmed-imraan-ai/Vue-Curseur/issues
 [license-shield]: https://img.shields.io/github/license/ahmed-imraan-ai/Vue-Curseur?style=for-the-badge
 [license-url]: https://github.com/ahmed-imraan-ai/Vue-Curseur/blob/main/LICENSE
 [product-screenshot]: images/screenshot.png
