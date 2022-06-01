@@ -60,12 +60,12 @@
 		_play.value = !_play.value;
 	};
 	const slides = [
-		{ img: "https://picsum.photos/id/237/1800/500", alt: "Random Image" },
-		{ img: "https://picsum.photos/id/811/1800/500", alt: "Random Image" },
-		{ img: "https://picsum.photos/id/892/1800/500", alt: "Random Image" },
+		{ img: "https://picsum.photos/id/237/1800/500", alt: "Dog Image" },
+		{ img: "https://picsum.photos/id/811/1800/500", alt: "Forest Image" },
+		{ img: "https://picsum.photos/id/892/1800/500", alt: "Plymouth Image" },
 		{ img: "https://picsum.photos/id/1002/1800/500", alt: "Random Image" },
-		{ img: "https://picsum.photos/id/316/1800/500", alt: "Random Image" },
-		{ img: "https://picsum.photos/id/757/1800/500", alt: "Random Image" },
+		{ img: "https://picsum.photos/id/316/1800/500", alt: "Bridge Image" },
+		{ img: "https://picsum.photos/id/757/1800/500", alt: "Car Image" },
 	];
 </script>
 
