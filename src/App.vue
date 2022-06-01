@@ -1,28 +1,28 @@
 <template>
 	<div style="margin-bottom: 10px"><Logo /></div>
 	<div class="title">Example 1</div>
-	<Slider
+	<VueCurseur
 		:transitionSpeed="500"
 		:autoPlay="false"
 		:autoPlaySpeed="2000"
 		class="slider1"
 	>
 		<template v-slot:default>
-			<Slide v-for="(s, i) in slides" :key="i">
+			<CurseurSlide v-for="(s, i) in slides" :key="i">
 				<div>
 					<img class="image" :src="s.img" :alt="s.alt" />
 				</div>
-			</Slide>
+			</CurseurSlide>
 		</template>
 		<!-- <template v-slot:nextButton="{ next }">
 			<button @click="next">Next From Main</button>
 		</template> -->
-	</Slider>
+	</VueCurseur>
 </template>
 
 <script setup lang="ts">
-	import Slider from "./components/Slider.vue";
-	import Slide from "./components/Slide.vue";
+	import VueCurseur from "./components/Slider.vue";
+	import CurseurSlide from "./components/Slide.vue";
 	import Logo from "./icons/Logo.vue";
 	const slides = [
 		{ img: "https://picsum.photos/id/237/1800/500", alt: "Random Image" },
