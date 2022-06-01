@@ -1,4 +1,4 @@
-import { Ref, ref } from "vue";
+import { Ref, ref, computed } from "vue";
 
 import { SliderObject } from "../types/slider";
 import { useRender } from "./render";
@@ -11,7 +11,7 @@ export const useSlider = ({
 	autoPlaySpeed,
 }: SliderObject) => {
 	let itemsList: Ref<Array<HTMLElement>> = ref([]);
-	let currentIndex = 1;
+	let currentIndex = ref(1);
 	const animate = ref(false);
 	let sliding = false;
 	let autoPlayInterval: number | undefined;
@@ -22,25 +22,53 @@ export const useSlider = ({
 		sliderTrack,
 		itemsList,
 	});
-
+	const count = computed(() => {
+		if (itemsList.value.length == 3) return 1;
+		if (itemsList.value.length > 3) return itemsList.value.length - 2;
+		return 0;
+	});
+	const currentSlide = computed(() => {
+		return currentIndex.value;
+	});
 	//resize slides to fit the track
 	const resized = () => {
 		const w = trackWidth();
-		const translate = currentIndex * Number(w);
+		const translate = currentIndex.value * Number(w);
 		sliderMain.value.style.transform = `translateX(-${translate}px)`;
 		itemsList.value.forEach(e => {
 			e.style.width = `${w}px`;
 		});
 	};
-
+	const gotoSlide = (a: number) => {
+		if (!sliding) {
+			if (
+				currentIndex.value !== a &&
+				a > 0 &&
+				a < itemsList.value.length
+			) {
+				sliding = true;
+				animate.value = true;
+				const w = trackWidth();
+				const translate = a * Number(w);
+				currentIndex.value = a;
+				sliderMain.value.style.transform = `translateX(-${translate}px)`;
+				setTimeout(() => {
+					animate.value = false;
+					sliding = false;
+					setActive();
+				}, transitionSpeed.value + 100);
+			}
+		}
+	};
 	//goto next slide
 	const next = () => {
 		if (itemsList.value.length == 3 || itemsList.value.length == 0) return;
 		if (!sliding) {
 			sliding = true;
 			animate.value = true;
-			if (currentIndex == itemsList.value.length - 2) {
-				const translate = (1 + currentIndex) * Number(trackWidth());
+			if (currentIndex.value == itemsList.value.length - 2) {
+				const translate =
+					(1 + currentIndex.value) * Number(trackWidth());
 				sliderMain.value.style.transform = `translateX(-${translate}px)`;
 				setActive("last");
 				setTimeout(() => {
@@ -50,12 +78,12 @@ export const useSlider = ({
 					setActive();
 				}, transitionSpeed.value + 100);
 
-				currentIndex = 1;
+				currentIndex.value = 1;
 			} else {
 				const w = trackWidth();
-				const translate = (1 + currentIndex) * Number(w);
+				const translate = (1 + currentIndex.value) * Number(w);
 				sliderMain.value.style.transform = `translateX(-${translate}px)`;
-				currentIndex++;
+				currentIndex.value++;
 				setTimeout(() => {
 					animate.value = false;
 					sliding = false;
@@ -71,7 +99,7 @@ export const useSlider = ({
 		if (!sliding) {
 			sliding = true;
 			animate.value = true;
-			if (currentIndex == 1) {
+			if (currentIndex.value == 1) {
 				sliderMain.value.style.transform = `translateX(0px)`;
 				setActive("first");
 				setTimeout(() => {
@@ -83,12 +111,12 @@ export const useSlider = ({
 					setActive();
 				}, transitionSpeed.value + 100);
 
-				currentIndex = itemsList.value.length - 2;
+				currentIndex.value = itemsList.value.length - 2;
 			} else {
 				const w = trackWidth();
-				const translate = (currentIndex - 1) * Number(w);
+				const translate = (currentIndex.value - 1) * Number(w);
 				sliderMain.value.style.transform = `translateX(-${translate}px)`;
-				currentIndex--;
+				currentIndex.value--;
 				setTimeout(() => {
 					animate.value = false;
 					sliding = false;
@@ -108,7 +136,7 @@ export const useSlider = ({
 				"curseur--slide--active"
 			);
 		else
-			itemsList.value[currentIndex].classList.add(
+			itemsList.value[currentIndex.value].classList.add(
 				"curseur--slide--active"
 			);
 	};
@@ -121,7 +149,7 @@ export const useSlider = ({
 		clearInterval(autoPlayInterval);
 	};
 	const reset = () => {
-		currentIndex = 1;
+		currentIndex.value = 1;
 		sliderMain.value.style.transform = `translateX(-${trackWidth()}px)`;
 	};
 	onResize(() => {
@@ -137,5 +165,8 @@ export const useSlider = ({
 		stop,
 		reset,
 		animate,
+		count,
+		currentSlide,
+		gotoSlide,
 	};
 };
