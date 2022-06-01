@@ -15,7 +15,10 @@
 					ref="sliderMain"
 					class="curseur--list"
 					:style="`--transition-speed:${transitionSpeed}ms`"
-					:class="animate ? 'animate-transition' : ''"
+					:class="{
+						'animate-transition': animate,
+						'curseur--scale--effect': __effect == 'grow',
+					}"
 				></ul>
 				<slot name="navigation" :next="next" :previous="previous">
 					<div class="curseur--slide--navigation">
@@ -62,7 +65,7 @@
 
 <script setup lang="ts">
 	import Slides from "./Slides.vue";
-	import { Ref, ref, onMounted, toRefs, watch } from "vue";
+	import { Ref, ref, onMounted, toRefs, watch, computed } from "vue";
 	import { useSlider } from "../utilities/slider";
 	//inons
 	import Arrow from "../icons/Arrow.vue";
@@ -85,11 +88,18 @@
 			type: Number,
 			default: 5000,
 		},
+		effect: {
+			type: String,
+			default: "none",
+		},
 	});
 
-	const { transitionSpeed, autoPlay, autoPlaySpeed } = toRefs(props);
+	const { transitionSpeed, autoPlay, autoPlaySpeed, effect } = toRefs(props);
 	//methods
-
+	const __effect = computed(() => {
+		if (effect.value == "grow") return "grow";
+		return "none";
+	});
 	const {
 		render,
 		trackWidth,
@@ -207,13 +217,13 @@
 		margin-top: 0px;
 		margin-left: 0px;
 	}
-	.curseur--list.animate-transition .curseur--slide {
+	.curseur--scale--effect.animate-transition .curseur--slide {
 		transform: scale(0.95);
 	}
 	.curseur--slide.curseur--slide--active {
 		transform: scale(1);
 	}
-	.curseur--list .curseur--slide {
+	.curseur--scale--effect .curseur--slide {
 		transition: all var(--transition-speed) ease-in-out;
 	}
 </style>

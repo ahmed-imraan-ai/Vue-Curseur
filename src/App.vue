@@ -6,6 +6,7 @@
 		:autoPlay="_play"
 		:autoPlaySpeed="5000"
 		class="slider1"
+		effect="grow"
 	>
 		<template v-slot:default>
 			<CurseurSlide v-for="(s, i) in slides" :key="i">
