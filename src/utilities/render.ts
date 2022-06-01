@@ -49,6 +49,7 @@ export const useRender = ({
 			}
 			//attach list to html
 			itemsList.value[1].classList.add("curseur--slide--active");
+
 			for (const i in itemsList.value) {
 				itemsList.value[i].setAttribute("vue-curseur--slide", i);
 				sliderRoot.append(itemsList.value[i]);

@@ -119,7 +119,7 @@
 	});
 </script>
 
-<style scoped>
+<style>
 	.vue-curseur.curseur--body {
 		position: relative;
 	}
@@ -144,6 +144,7 @@
 	.animate-transition {
 		transition: all var(--transition-speed) ease-in-out;
 	}
+
 	.curseur--slide--navigation {
 		position: absolute;
 		top: 0;
@@ -205,5 +206,14 @@
 		height: 14px;
 		margin-top: 0px;
 		margin-left: 0px;
+	}
+	.curseur--list.animate-transition .curseur--slide {
+		transform: scale(0.95);
+	}
+	.curseur--slide.curseur--slide--active {
+		transform: scale(1);
+	}
+	.curseur--list .curseur--slide {
+		transition: all var(--transition-speed) ease-in-out;
 	}
 </style>
