@@ -4,7 +4,7 @@
 	<VueCurseur
 		:transitionSpeed="300"
 		:autoPlay="_play"
-		:autoPlaySpeed="2000"
+		:autoPlaySpeed="5000"
 		class="slider1"
 	>
 		<template v-slot:default>
@@ -14,15 +14,11 @@
 				</div>
 			</CurseurSlide>
 		</template>
-		<!-- <template v-slot:nextButton="{ next }">
-			<button @click="next">Next From Main</button>
-		</template> -->
 	</VueCurseur>
 
 	<div @click="play" class="playButton">
 		<template v-if="!_play">
 			<svg
-				class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiBox-root css-uqopch"
 				focusable="false"
 				aria-hidden="true"
 				viewBox="0 0 24 24"
