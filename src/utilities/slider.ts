@@ -1,4 +1,4 @@
-import { Ref, ref, computed } from "vue";
+import { Ref, ref, computed, onMounted, onBeforeUnmount } from "vue";
 
 import { SliderObject } from "../types/slider";
 import { useRender } from "./render";
@@ -9,6 +9,7 @@ export const useSlider = ({
 	sliderTrack,
 	transitionSpeed,
 	autoPlaySpeed,
+	autoPlay,
 }: SliderObject) => {
 	let itemsList: Ref<Array<HTMLElement>> = ref([]);
 	let currentIndex = ref(1);
@@ -22,6 +23,7 @@ export const useSlider = ({
 		sliderTrack,
 		itemsList,
 	});
+	const _play = ref(false);
 	const count = computed(() => {
 		if (itemsList.value.length == 3) return 1;
 		if (itemsList.value.length > 3) return itemsList.value.length - 2;
@@ -140,18 +142,23 @@ export const useSlider = ({
 				"curseur--slide--active"
 			);
 	};
-	const start = () => {
-		autoPlayInterval = setInterval(() => {
-			next();
-		}, autoPlaySpeed.value + transitionSpeed.value);
-	};
-	const stop = () => {
-		clearInterval(autoPlayInterval);
-	};
+
 	const reset = () => {
 		currentIndex.value = 1;
 		sliderMain.value.style.transform = `translateX(-${trackWidth()}px)`;
 	};
+	//Auto play
+	onMounted(() => {
+		autoPlayInterval = setInterval(() => {
+			if (autoPlay.value) {
+				next();
+			}
+		}, autoPlaySpeed.value + transitionSpeed.value);
+	});
+	//stop autoplay before unmount
+	onBeforeUnmount(() => {
+		clearInterval(autoPlayInterval);
+	});
 	onResize(() => {
 		resized();
 	});
@@ -161,8 +168,6 @@ export const useSlider = ({
 		resized,
 		next,
 		previous,
-		start,
-		stop,
 		reset,
 		animate,
 		count,

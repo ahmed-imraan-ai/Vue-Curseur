@@ -5,6 +5,7 @@ export type SliderObject = {
 	sliderTrack: Ref<HTMLElement>;
 	transitionSpeed: Ref<number>;
 	autoPlaySpeed: Ref<number>;
+	autoPlay: Ref<boolean>;
 };
 
 export type RenderObject = {

@@ -76,7 +76,7 @@
 	const props = defineProps({
 		transitionSpeed: {
 			type: Number,
-			default: 500,
+			default: 300,
 		},
 		autoPlay: {
 			type: Boolean,
@@ -96,8 +96,6 @@
 		trackWidth,
 		next,
 		previous,
-		start,
-		stop,
 		reset,
 		animate,
 		count,
@@ -109,17 +107,16 @@
 		sliderTrack,
 		transitionSpeed,
 		autoPlaySpeed,
+		autoPlay,
 	});
 	const reRender = () => {
+		console.log(1);
 		render();
 		reset();
 	};
 	onMounted(() => {
 		render();
 		sliderMain.value.style.transform = `translateX(-${trackWidth()}px)`;
-		if (autoPlay.value) {
-			start();
-		}
 	});
 </script>
 
