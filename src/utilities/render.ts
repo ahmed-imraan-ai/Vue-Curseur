@@ -15,24 +15,24 @@ export const useRender = ({
 			itemsList.value = [];
 			const TmpList = [];
 			//create Tmp list
-
 			for (const i in itemsRoot.children) {
-				if (itemsRoot.children[i].tagName) {
+				const node = itemsRoot.children[i];
+				if (
+					typeof node == "object" &&
+					"nodeType" in node &&
+					node.nodeType === 1 &&
+					node.cloneNode
+				) {
 					if (
-						itemsRoot.children[i].classList.contains(
-							"curseur--slide"
-						) &&
-						itemsRoot.children[i].hasAttribute("vue-curseur--slide")
+						node.classList.contains("curseur--slide") &&
+						node.hasAttribute("vue-curseur--slide")
 					) {
-						const item = itemsRoot.children[i].cloneNode(
-							true
-						) as HTMLElement;
+						const item = node.cloneNode(true) as HTMLElement;
 						TmpList.push(item);
 					}
 				}
 			}
 			if (!TmpList.length) return;
-
 			//create List with clones
 			if (TmpList.length > 0) {
 				const firstClone = TmpList[0].cloneNode(true) as HTMLElement;
@@ -49,10 +49,6 @@ export const useRender = ({
 			}
 			//attach list to html
 			itemsList.value[1].classList.add("curseur--slide--active");
-			// itemsList.value.forEach(e => {
-			// 	e.setAttribute('vue-curseur--slide',i)
-			// 	sliderRoot.append(e);
-			// });
 			for (const i in itemsList.value) {
 				itemsList.value[i].setAttribute("vue-curseur--slide", i);
 				sliderRoot.append(itemsList.value[i]);

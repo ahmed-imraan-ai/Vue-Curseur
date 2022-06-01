@@ -32,7 +32,6 @@
 					</div>
 				</slot>
 			</div>
-
 			<slot
 				name="pagination"
 				:count="count"
