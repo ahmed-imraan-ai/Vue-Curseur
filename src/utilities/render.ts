@@ -15,12 +15,20 @@ export const useRender = ({
 			itemsList.value = [];
 			const TmpList = [];
 			//create Tmp list
+
 			for (const i in itemsRoot.children) {
-				if (Number(i) >= 0) {
-					const item = itemsRoot.children[i].cloneNode(
-						true
-					) as HTMLElement;
-					TmpList.push(item);
+				if (itemsRoot.children[i].tagName) {
+					if (
+						itemsRoot.children[i].classList.contains(
+							"curseur--slide"
+						) &&
+						itemsRoot.children[i].hasAttribute("vue-curseur--slide")
+					) {
+						const item = itemsRoot.children[i].cloneNode(
+							true
+						) as HTMLElement;
+						TmpList.push(item);
+					}
 				}
 			}
 			if (!TmpList.length) return;
@@ -41,9 +49,14 @@ export const useRender = ({
 			}
 			//attach list to html
 			itemsList.value[1].classList.add("curseur--slide--active");
-			itemsList.value.forEach(e => {
-				sliderRoot.append(e);
-			});
+			// itemsList.value.forEach(e => {
+			// 	e.setAttribute('vue-curseur--slide',i)
+			// 	sliderRoot.append(e);
+			// });
+			for (const i in itemsList.value) {
+				itemsList.value[i].setAttribute("vue-curseur--slide", i);
+				sliderRoot.append(itemsList.value[i]);
+			}
 			setItemWidth(_trackWidth());
 		}
 	};

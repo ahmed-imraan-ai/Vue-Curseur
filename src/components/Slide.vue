@@ -1,5 +1,5 @@
 <template>
-	<li class="curseur--slide">
+	<li class="curseur--slide" vue-curseur--slide>
 		<slot />
 	</li>
 </template>
