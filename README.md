@@ -6,6 +6,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
+[![Current Version[version-shield]][version-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -181,4 +182,6 @@ Use this space to list resources you find helpful and would like to give credit 
 [issues-url]: https://github.com/ahmed-imraan-ai/Vue-Curseur/issues
 [license-shield]: https://img.shields.io/github/license/ahmed-imraan-ai/Vue-Curseur?style=for-the-badge
 [license-url]: https://github.com/ahmed-imraan-ai/Vue-Curseur/blob/main/LICENSE
+[version-shield]: https://img.shields.io/github/package-json/v/ahmed-imraan-ai/Vue-Curseur?color=g&label=Current%20Version&style=for-the-badge
+[version-url]: https://github.com/ahmed-imraan-ai/Vue-Curseur/
 [product-screenshot]: images/screenshot06012022.png
