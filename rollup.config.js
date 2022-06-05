@@ -13,6 +13,7 @@ const banner = `/*
  * ${pkg.description}
  * v${pkg.version}
  * ${pkg.license} License
+ * ${pkg.author.name} <${pkg.author.email}>
  */
 `;
 
@@ -24,7 +25,7 @@ export default {
 			format: "cjs",
 			exports: "named",
 			strict: true,
-			banner,
+			banner: banner,
 		},
 		{
 			file: pkg.module,
@@ -46,7 +47,15 @@ export default {
 		},
 	],
 	plugins: [
-		scss(),
+		{
+			banner() {
+				return banner;
+			},
+		},
+		scss({
+			output: pkg.css,
+			outputStyle: "compressed",
+		}),
 		vue(),
 		sucrase({
 			exclude: ["node_modules/**"],

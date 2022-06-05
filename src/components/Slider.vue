@@ -129,101 +129,103 @@
 	});
 </script>
 
-<style>
-	.vue-curseur.curseur--body {
-		position: relative;
-	}
-	.hidden {
-		display: none;
-	}
-	.curseur--track {
-		position: relative;
-		z-index: 0;
-		overflow: hidden;
-	}
-	.curseur--list {
-		display: flex;
-		position: relative;
-		margin: 0 !important;
-		padding: 0 !important;
-		width: -webkit-max-content;
-		width: -moz-max-content;
-		width: max-content;
-		will-change: transform;
-	}
-	.animate-transition {
-		transition: all var(--transition-speed) ease-in-out;
-	}
+<style lang="scss">
+	.vue-curseur--wrapper {
+		.vue-curseur.curseur--body {
+			position: relative;
+		}
+		.hidden {
+			display: none;
+		}
+		.curseur--track {
+			position: relative;
+			z-index: 0;
+			overflow: hidden;
+		}
+		.curseur--list {
+			display: flex;
+			position: relative;
+			margin: 0 !important;
+			padding: 0 !important;
+			width: -webkit-max-content;
+			width: -moz-max-content;
+			width: max-content;
+			will-change: transform;
+		}
+		.animate-transition {
+			transition: all var(--transition-speed) ease-in-out;
+		}
 
-	.curseur--slide--navigation {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		width: 100%;
-		height: 100%;
-	}
-	.curseur--slide--navigation .curseur--next,
-	.curseur--slide--navigation .curseur--previous {
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		cursor: pointer;
-		background-color: #3333339d;
-		border-radius: 50%;
-		width: 44px;
-		height: 44px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		opacity: 0.5;
-	}
-	.curseur--slide--navigation .curseur--next:hover,
-	.curseur--slide--navigation .curseur--previous:hover {
-		opacity: 1;
-	}
-	.curseur--slide--navigation .curseur--next {
-		right: 0;
-		margin-right: 5px;
-	}
-	.curseur--slide--navigation .curseur--previous {
-		left: 0;
-		margin-left: 5px;
-	}
-	.curseur--pagination {
-		display: flex;
-		justify-content: center;
-		column-gap: 2px;
-	}
-	.curseur--pagination .curseur--pagination--wrapper {
-		width: 14px;
-		height: 14px;
-	}
-	.curseur--pagination .curseur--pagination--item {
-		width: 10px;
-		height: 10px;
-		cursor: pointer;
-		background: #9f9f9f;
-		border-radius: 50%;
-		transition: all 200ms ease-in-out;
-		margin-top: 2px;
-		margin-left: 2px;
-	}
-	.curseur--pagination
-		.curseur--pagination--item.curseur--pagination--item--active {
-		width: 14px;
-		height: 14px;
-		margin-top: 0px;
-		margin-left: 0px;
-	}
-	.curseur--scale--effect.animate-transition .curseur--slide {
-		transform: scale(0.95);
-	}
-	.curseur--slide.curseur--slide--active {
-		transform: scale(1);
-	}
-	.curseur--scale--effect .curseur--slide {
-		transition: all var(--transition-speed) ease-in-out;
+		.curseur--slide--navigation {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.curseur--slide--navigation .curseur--next,
+		.curseur--slide--navigation .curseur--previous {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			cursor: pointer;
+			background-color: #3333339d;
+			border-radius: 50%;
+			width: 44px;
+			height: 44px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			opacity: 0.5;
+		}
+		.curseur--slide--navigation .curseur--next:hover,
+		.curseur--slide--navigation .curseur--previous:hover {
+			opacity: 1;
+		}
+		.curseur--slide--navigation .curseur--next {
+			right: 0;
+			margin-right: 5px;
+		}
+		.curseur--slide--navigation .curseur--previous {
+			left: 0;
+			margin-left: 5px;
+		}
+		.curseur--pagination {
+			display: flex;
+			justify-content: center;
+			column-gap: 2px;
+		}
+		.curseur--pagination .curseur--pagination--wrapper {
+			width: 14px;
+			height: 14px;
+		}
+		.curseur--pagination .curseur--pagination--item {
+			width: 10px;
+			height: 10px;
+			cursor: pointer;
+			background: #9f9f9f;
+			border-radius: 50%;
+			transition: all 200ms ease-in-out;
+			margin-top: 2px;
+			margin-left: 2px;
+		}
+		.curseur--pagination
+			.curseur--pagination--item.curseur--pagination--item--active {
+			width: 14px;
+			height: 14px;
+			margin-top: 0px;
+			margin-left: 0px;
+		}
+		.curseur--scale--effect.animate-transition .curseur--slide {
+			transform: scale(0.95);
+		}
+		.curseur--slide.curseur--slide--active {
+			transform: scale(1);
+		}
+		.curseur--scale--effect .curseur--slide {
+			transition: all var(--transition-speed) ease-in-out;
+		}
 	}
 </style>
