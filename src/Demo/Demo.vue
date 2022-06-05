@@ -19,12 +19,7 @@
 
 	<div @click="play" class="playButton">
 		<template v-if="!_play">
-			<svg
-				focusable="false"
-				aria-hidden="true"
-				viewBox="0 0 24 24"
-				data-testid="PlayCircleIcon"
-			>
+			<svg focusable="false" viewBox="0 0 24 24">
 				<path
 					d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.5 16.5v-9l7 4.5-7 4.5z"
 				></path>
@@ -34,9 +29,7 @@
 			<svg
 				class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiBox-root css-uqopch"
 				focusable="false"
-				aria-hidden="true"
 				viewBox="0 0 24 24"
-				data-testid="PauseCircleIcon"
 			>
 				<path
 					d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"
@@ -48,9 +41,8 @@
 </template>
 
 <script setup lang="ts">
-	import VueCurseur from "./components/Slider.vue";
-	import CurseurSlide from "./components/Slide.vue";
-	import Logo from "./icons/Logo.vue";
+	import { VueCurseur, CurseurSlide } from "../index";
+	import Logo from "../icons/Logo.vue";
 	import { ref } from "vue";
 	const _play = ref(false);
 	const play = () => {
