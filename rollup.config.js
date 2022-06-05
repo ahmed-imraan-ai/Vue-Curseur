@@ -39,7 +39,7 @@ export default {
 			exports: "named",
 			strict: true,
 			banner,
-			name: "FloatMenu",
+			name: "VueCurseur",
 			globals: {
 				vue: "vue",
 			},
