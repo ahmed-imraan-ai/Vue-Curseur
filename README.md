@@ -129,33 +129,21 @@ TBA
 -   Vue 3
 
 ```sh
-
+# for npm:
 npm install vue@latest
 
-```
-
-or
-
-```sh
-
+# for yarn:
 yarn add vue@latest
-
 ```
 
 ### Installation
 
 ```sh
-
+# for npm:
 npm install vue-curseur
 
-```
-
-or
-
-```sh
-
+# for yarn:
 yarn add vue-curseur
-
 ```
 
 <p align="right">(<a  href="#top">back to top</a>)</p>
@@ -171,30 +159,30 @@ yarn add vue-curseur
 import "vue-curseur/dist/style.css";
 ```
 
-```jsx
+```html
 //MyComponent.vue
 <script setup>
-import { VueCurseur,  CurseurSlide } from 'vue-curseur';
-const slides = [
-	{  img:  "https://picsum.photos/id/237/1800/500",  alt:  "Dog Image"  },
-	{  img:  "https://picsum.photos/id/811/1800/500",  alt:  "Forest Image"  },
-	{  img:  "https://picsum.photos/id/892/1800/500",  alt:  "Plymouth Image"  },
-	{  img:  "https://picsum.photos/id/1002/1800/500",  alt:  "Random Image"  },
-	{  img:  "https://picsum.photos/id/316/1800/500",  alt:  "Bridge Image"  },
-	{  img:  "https://picsum.photos/id/757/1800/500",  alt:  "Car Image"  },
-];
+	import { VueCurseur, CurseurSlide } from "vue-curseur";
+	const slides = [
+		{ img: "https://picsum.photos/id/237/1800/500", alt: "Dog Image" },
+		{ img: "https://picsum.photos/id/811/1800/500", alt: "Forest Image" },
+		{ img: "https://picsum.photos/id/892/1800/500", alt: "Plymouth Image" },
+		{ img: "https://picsum.photos/id/1002/1800/500", alt: "Random Image" },
+		{ img: "https://picsum.photos/id/316/1800/500", alt: "Bridge Image" },
+		{ img: "https://picsum.photos/id/757/1800/500", alt: "Car Image" },
+	];
 </script>
 
 <template>
 	<VueCurseur
-	:autoPlay="true"
-	:transitionSpeed="300"
-	:autoPlaySpeed="5000"
-	effect="grow"
+		:autoPlay="true"
+		:transitionSpeed="300"
+		:autoPlaySpeed="5000"
+		effect="grow"
 	>
-		<CurseurSlide  v-for="(s, i) in slides" :key="i">
+		<CurseurSlide v-for="(s, i) in slides" :key="i">
 			<div>
-				<img  class="image" :src="s.img" :alt="s.alt" />
+				<img class="image" :src="s.img" :alt="s.alt" />
 			</div>
 		</CurseurSlide>
 	</VueCurseur>
@@ -218,29 +206,29 @@ createApp(App)
   .mount('#app')
 ```
 
-```jsx
+```html
 //SliderComponent.vue
 <script setup>
-const slides = [
-	{  img:  "https://picsum.photos/id/237/1800/500",  alt:  "Dog Image"  },
-	{  img:  "https://picsum.photos/id/811/1800/500",  alt:  "Forest Image"  },
-	{  img:  "https://picsum.photos/id/892/1800/500",  alt:  "Plymouth Image"  },
-	{  img:  "https://picsum.photos/id/1002/1800/500",  alt:  "Random Image"  },
-	{  img:  "https://picsum.photos/id/316/1800/500",  alt:  "Bridge Image"  },
-	{  img:  "https://picsum.photos/id/757/1800/500",  alt:  "Car Image"  },
-];
+	const slides = [
+		{ img: "https://picsum.photos/id/237/1800/500", alt: "Dog Image" },
+		{ img: "https://picsum.photos/id/811/1800/500", alt: "Forest Image" },
+		{ img: "https://picsum.photos/id/892/1800/500", alt: "Plymouth Image" },
+		{ img: "https://picsum.photos/id/1002/1800/500", alt: "Random Image" },
+		{ img: "https://picsum.photos/id/316/1800/500", alt: "Bridge Image" },
+		{ img: "https://picsum.photos/id/757/1800/500", alt: "Car Image" },
+	];
 </script>
 
 <template>
 	<vue-curseur
-	:autoPlay="true"
-	:transitionSpeed="300"
-	:autoPlaySpeed="5000"
-	effect="grow"
+		:autoPlay="true"
+		:transitionSpeed="300"
+		:autoPlaySpeed="5000"
+		effect="grow"
 	>
 		<curseur-slide v-for="(s, i) in slides" :key="i">
 			<div>
-				<img  class="image" :src="s.img" :alt="s.alt" />
+				<img class="image" :src="s.img" :alt="s.alt" />
 			</div>
 		</curseur-slide>
 	</vue-curseur>
