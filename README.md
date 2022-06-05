@@ -193,8 +193,8 @@ import "vue-curseur/dist/style.css";
 
 ```js
 //main js
-import App from './App.vue'
-import 'vue-curseur/dist/style.css'
+import App from './App.vue';
+import 'vue-curseur/dist/style.css';
 import 'plugin as VueCurseurPlugin' from 'vue-curseur';
 /*
 or
