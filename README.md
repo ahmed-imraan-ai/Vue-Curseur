@@ -25,20 +25,8 @@ Light, extendable and reactive Slider for Vue 3
 <br />
 
 <a  href="https://github.com/ahmed-imraan-ai/Vue-Curseur"><strong>Explore the docs »</strong></a>
-
 <br />
-
-<br />
-
-<a  href="https://github.com/ahmed-imraan-ai/Vue-Curseur">View Demo</a>
-
-·
-
-<a  href="https://github.com/ahmed-imraan-ai/Vue-Curseur/issues">Report Bug</a>
-
-·
-
-<a  href="https://github.com/ahmed-imraan-ai/Vue-Curseur/issues">Request Feature</a>
+<a  href="https://github.com/ahmed-imraan-ai/Vue-Curseur">View Demo</a> · <a  href="https://github.com/ahmed-imraan-ai/Vue-Curseur/issues">Report Bug</a> · <a  href="https://github.com/ahmed-imraan-ai/Vue-Curseur/issues">Request Feature</a>
 
 </p>
 
