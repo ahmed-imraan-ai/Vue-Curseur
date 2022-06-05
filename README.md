@@ -2,11 +2,11 @@
 
 <!-- PROJECT SHIELDS -->
 
-[![Contributors][contributors-shield]][contributors-url] [![MIT License][license-shield]][license-url] [![Current Version][version-shield]][version-url]
+[![Contributors][contributors-shield]][contributors-url] [![MIT License][license-shield]][license-url] [![Issues][issues-shield]][issues-url] [![Current Version][version-shield]][version-url]
 
 <!-- PROJECT LOGO -->
 
-<!-- [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url]  -->
+<!-- [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url]   -->
 <br />
 
 <div align="center">
