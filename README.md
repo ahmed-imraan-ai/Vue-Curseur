@@ -193,17 +193,11 @@ import "vue-curseur/dist/style.css";
 
 ```js
 //main js
-import App from './App.vue';
-import 'vue-curseur/dist/style.css';
-import 'plugin as VueCurseurPlugin' from 'vue-curseur';
-/*
-or
-import VueCurseurPlugin from 'vue-curseur';
-*/
+import App from "./App.vue";
+import "vue-curseur/dist/style.css";
+import VueCurseurPlugin from "vue-curseur";
 
-createApp(App)
-  .use(VueCurseurPlugin)
-  .mount('#app')
+createApp(App).use(VueCurseurPlugin).mount("#app");
 ```
 
 ```html
